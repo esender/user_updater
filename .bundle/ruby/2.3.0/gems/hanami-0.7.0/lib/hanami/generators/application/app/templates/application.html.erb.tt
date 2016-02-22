@@ -1,0 +1,10 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title><%= config[:classified_app_name] %></title>
+    <%%= favicon %>
+  </head>
+  <body>
+    <%%= yield %>
+  </body>
+</html>
