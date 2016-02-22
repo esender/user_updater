@@ -1,5 +1,0 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'hanami/setup'
-require_relative '../lib/<%= config[:app_name] %>'
-require_relative '../config/application'
