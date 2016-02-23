@@ -85,10 +85,7 @@ module Api
       #
       # default_request_format :html
 
-      # Default format for responses that doesn't take into account the request format
-      # Argument: A symbol representation of a mime type, default to :html
-      #
-      # default_response_format :html
+      default_response_format :json
 
       # HTTP Body parsers
       # Parse non GET responses body for a specific mime type
@@ -108,11 +105,7 @@ module Api
 
       # The layout to be used by all views
       #
-      layout :application # It will load Api::Views::ApplicationLayout
-
-      # The relative path to templates
-      #
-      templates 'templates'
+      layout false
 
       ##
       # ASSETS
