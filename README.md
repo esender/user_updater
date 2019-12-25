@@ -1,26 +1,28 @@
-**Дано:** <br />
-очень большая таблица users с полями *id*, shard_id ( > 10 млн записей )
-~~~
+**Suppose:**\
+Exists very big table `users` with fields: *id*, *shard_id* (> 10 million records)
+
+```
 |id |shard_id|
 | 1 |NULL    |
 | 2 |NULL    |
 |...|NULL    |
-~~~
+```
 
-**Нужно:** <br />
-Написать решение, которое назначает каждому полю shard_id случайное значение от 1 до 10, если оно  NULL.
+**Need to be done:**\
+Set a random value from 1 up to 10 for each NULL valued shard_id field.
 
-Решение должно:
-- позволять остановить обновление, поправить код в случае ошибки, и запустить заново, не обновляя уже обработанные записи.
--   быть устойчивым к исключениям в случае ошибок обновления отдельных записей.
--   масштабируемым ( позволяет запускать обновление многопоточно)
--   рассчитать примерное время завершения, исходя из количества одновременных потоков
--   работать на реальной рабочей системе без остановки приложения, использующего таблицу users
+Solution should:
+- Allows to stop updating at any time, fix the code and run it again, without updating processed data
+- Be resilient to exceptions in case of updating individual records
+- Scalable. Allows to run it multithreaded
+- Should assume and display a potential time of ending
+- Work in real production system without stopping the main app
 
-**Опционально**<br />
--    написать  API для получения количества необработанных записей
-~~~
+**Optional**/
+- Write an API to get number of unprocessed records
+
+```
 curl http://localhost:3000/api/sync/users/count
-~~~
+```
 
-можно: пользоваться любыми библиотеками
+Possible to use any library
